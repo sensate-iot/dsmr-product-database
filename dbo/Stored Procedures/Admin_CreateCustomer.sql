@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[Admin_CreateCustomerUser]
+﻿CREATE PROCEDURE [dbo].[Admin_CreateCustomer]
 	@firstname NVARCHAR(64),
 	@lastname  NVARCHAR(64),
 	@email     NVARCHAR(64)
