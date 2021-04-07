@@ -79,5 +79,7 @@
     <Build Include="dbo\Tables\UserDevices.sql" />
     <Build Include="dbo\Stored Procedures\DsmrApi_GetProductToken.sql" />
     <Build Include="dbo\Stored Procedures\DsmrApi_GetSensorsByUserId.sql" />
+    <Build Include="dbo\Stored Procedures\DsmrProcessor_GetDevices.sql" />
+    <Build Include="Security\db_processor.sql" />
   </ItemGroup>
 </Project>
