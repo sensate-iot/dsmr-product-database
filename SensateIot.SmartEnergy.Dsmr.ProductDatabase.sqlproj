@@ -73,8 +73,11 @@
     <Build Include="Security\db_dsmrapi.sql" />
     <Build Include="dbo\Tables\Customers.sql" />
     <Build Include="dbo\Tables\Users.sql" />
-    <Build Include="dbo\Tables\CustomerSensors.sql" />
     <Build Include="dbo\Tables\ProductTokens.sql" />
     <Build Include="dbo\Stored Procedures\Admin_CreateCustomer.sql" />
+    <Build Include="dbo\Tables\Devices.sql" />
+    <Build Include="dbo\Tables\UserDevices.sql" />
+    <Build Include="dbo\Stored Procedures\DsmrApi_GetProductToken.sql" />
+    <Build Include="dbo\Stored Procedures\DsmrApi_GetSensorsByUserId.sql" />
   </ItemGroup>
 </Project>
