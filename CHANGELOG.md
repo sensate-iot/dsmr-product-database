@@ -8,4 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Customer table
 - User table
-- Customer sensor mapping table
+- Customer (user) sensor mapping table
+- Devices table
+- Product authentication
+
+### Updated
+- Product/project documentation
+- Project administration
