@@ -2,9 +2,11 @@
 	@userId UNIQUEIDENTIFIER
 AS
 BEGIN
-	SELECT [SensorId]
-	FROM [dbo].[CustomerSensors]
-	INNER JOIN [dbo].[Users] u ON [u].[Id] = @userId
-	INNER JOIN [dbo].[Customers] c ON [c].[Id] = [u].[CustomerId]
-	WHERE [u].[Enabled] = 1
+	SELECT [Id]
+	      ,[PowerSensorId]
+		  ,[GasSensorId]
+		  ,[EnvironmentSensorId]
+	FROM [dbo].[Devices]
+	INNER JOIN [dbo].[UserDevices] u ON [u].[UserId] = @userId
+	WHERE [u].[UserId] = @userId
 END
