@@ -2,9 +2,11 @@
 	@token UNIQUEIDENTIFIER
 AS
 BEGIN
-	SELECT [UserId],
+	SELECT [Id],
+	       [UserId],
 	       [Token],
 		   [Enabled],
 		   [Timestamp]
-	FROM [dbo].[ProductTokens]
+	FROM [dbo].[ProductTokens] pt
+	WHERE [pt].[Token] = @token
 END
