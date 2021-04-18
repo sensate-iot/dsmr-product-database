@@ -70,13 +70,15 @@ BEGIN
 		,[ServiceName]
 		,[Enabled]
 		,[Timestamp]
+		,[OnboardingToken]
 	) VALUES (
 		@pwrSensorId,
 		@envSensorId,
 		@gasSensorId,
 		@processingServiceName,
 		0,
-		GETUTCDATE()
+		GETUTCDATE(),
+		NEWID()
 	);
 
 	SET @deviceId = SCOPE_IDENTITY();

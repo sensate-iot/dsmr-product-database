@@ -83,5 +83,6 @@
     <Build Include="Security\db_processor.sql" />
     <Build Include="dbo\Stored Procedures\DsmrApi_SelectDevicesForUser.sql" />
     <Build Include="dbo\Stored Procedures\DsmrApi_SelectUserById.sql" />
+    <Build Include="dbo\Stored Procedures\DsmrApi_Login.sql" />
   </ItemGroup>
 </Project>

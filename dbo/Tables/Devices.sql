@@ -6,9 +6,11 @@
 	[PowerSensorId]    NVARCHAR(24)              NOT NULL,
 	[GasSensorId]      NVARCHAR(24),
 	[EnvironmentSensorId] NVARCHAR(24),
-	[Timestamp]        DATETIME                  NOT NULL DEFAULT(GETUTCDATE())
+	[Timestamp]        DATETIME                  NOT NULL DEFAULT(GETUTCDATE()),
+	[OnboardingToken]  UNIQUEIDENTIFIER          NOT NULL DEFAULT(NEWID())
 
 	CONSTRAINT [PK_Devices] PRIMARY KEY NONCLUSTERED ([Id] ASC),
 	INDEX [IX_Devices_PowerSensorId] NONCLUSTERED ([PowerSensorId]),
-	INDEX [IX_Devices_ServiceName] NONCLUSTERED ([ServiceName])
+	INDEX [IX_Devices_ServiceName] NONCLUSTERED ([ServiceName]),
+	INDEX [IX_Devices_OnboardingToken] NONCLUSTERED ([OnboardingToken])
 )
