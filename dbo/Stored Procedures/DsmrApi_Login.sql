@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [DsmrApi_Login]
-	@email NVARCHAR(64),
-	@token NVARCHAR(40)
+	@email NVARCHAR(64) NOT NULL,
+	@token NVARCHAR(40) NOT NULL
 AS
 BEGIN
 	BEGIN TRANSACTION [t]
@@ -9,7 +9,7 @@ BEGIN
 
 	SELECT @userId = [Id]
 	FROM [dbo].[Users]
-	WHERE [OnboardingToken] = @token
+	WHERE ISNULL([OnboardingToken], '') = @token
 	  AND [Enabled] = 0
 	  AND [Email] = @email
 
