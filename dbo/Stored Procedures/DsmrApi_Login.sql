@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [DsmrApi_Login]
 	@email NVARCHAR(64) ,
-	@token NVARCHAR(40) ,
+	@token NVARCHAR(40)
 AS
 BEGIN
 	BEGIN TRANSACTION [t]
