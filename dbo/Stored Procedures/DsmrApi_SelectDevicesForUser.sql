@@ -3,7 +3,6 @@
 AS
 BEGIN
 	SELECT [Id]
-		  ,[OnboardingToken]
 		  ,[ServiceName]
 		  ,[Enabled]
 		  ,[PowerSensorId]

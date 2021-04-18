@@ -1,7 +1,6 @@
 ﻿CREATE TABLE [dbo].[Devices]
 (
 	[Id]               INT                       NOT NULL IDENTITY(1, 1) NOT FOR REPLICATION,
-	[OnboardingToken]  UNIQUEIDENTIFIER          NOT NULL,
 	[ServiceName]      NVARCHAR(32)              NOT NULL,
 	[Enabled]          BIT                       NOT NULL DEFAULT(1),
 	[PowerSensorId]    NVARCHAR(24)              NOT NULL,
@@ -11,6 +10,5 @@
 
 	CONSTRAINT [PK_Devices] PRIMARY KEY NONCLUSTERED ([Id] ASC),
 	INDEX [IX_Devices_PowerSensorId] NONCLUSTERED ([PowerSensorId]),
-	INDEX [IX_Devices_ServiceName] NONCLUSTERED ([ServiceName]),
-	INDEX [IX_Device_OnboardingToken] UNIQUE NONCLUSTERED ([OnboardingToken])
+	INDEX [IX_Devices_ServiceName] NONCLUSTERED ([ServiceName])
 )

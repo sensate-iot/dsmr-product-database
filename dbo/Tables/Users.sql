@@ -6,10 +6,12 @@
 	[LastName]                  NVARCHAR(64)              NOT NULL,
 	[Email]                     NVARCHAR(64)              NOT NULL,
 	[Enabled]					BIT		                  NOT NULL,
+	[OnboardingToken]           NVARCHAR(40)              NOT NULL,
 	[Timestamp]                 DATETIME                  NOT NULL DEFAULT(GETUTCDATE())
 
 	CONSTRAINT [PK_Users] PRIMARY KEY NONCLUSTERED ([Id]),
 	CONSTRAINT [FK_Users_Customers] FOREIGN KEY ([CustomerId]) REFERENCES [Customers] ([Id])
 		ON UPDATE CASCADE
-		ON DELETE CASCADE
+		ON DELETE CASCADE,
+	INDEX [IX_Users_OnboardingToken] UNIQUE NONCLUSTERED ([OnboardingToken])
 )

@@ -40,6 +40,7 @@ BEGIN
 		[Email],
 		[CustomerId],
 		[Enabled],
+		[OnboardingToken],
 		[Timestamp]
 	) VALUES (
 		@userId,
@@ -48,6 +49,7 @@ BEGIN
 		@email,
 		@customerId,
 		0,
+		CONVERT(NVARCHAR(40), NEWID()),
 		GETUTCDATE()
 	);
 
@@ -62,15 +64,13 @@ BEGIN
 	);
 
 	INSERT INTO [dbo].[Devices] (
-		 [OnboardingToken]
-		,[PowerSensorId]
+		 [PowerSensorId]
 		,[EnvironmentSensorId]
 		,[GasSensorId]
 		,[ServiceName]
 		,[Enabled]
 		,[Timestamp]
 	) VALUES (
-		NEWID(),
 		@pwrSensorId,
 		@envSensorId,
 		@gasSensorId,
