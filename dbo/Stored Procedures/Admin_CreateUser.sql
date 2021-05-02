@@ -1,40 +1,21 @@
-﻿CREATE PROCEDURE [dbo].[Admin_CreateCustomer]
+﻿CREATE PROCEDURE [dbo].[Admin_CreateUser]
 	@firstname NVARCHAR(64),
 	@lastname  NVARCHAR(64),
 	@email     NVARCHAR(64),
 	@msisdn    BIGINT,
-	@processingServiceName NVARCHAR(32),
-	@pwrSensorId NVARCHAR(24),
-	@envSensorId NVARCHAR(24),
-	@gasSensorId NVARCHAR(24)
+	@customerId UNIQUEIDENTIFIER,
+	@deviceId INT
 AS
 BEGIN
-	DECLARE @customerId UNIQUEIDENTIFIER;
+	SET NOCOUNT ON;
+
 	DECLARE @userId UNIQUEIDENTIFIER;
 	DECLARE @productTokenId UNIQUEIDENTIFIER;
-	DECLARE @deviceId INT;
 
 	BEGIN TRAN [t1];
 
-	SET @customerId = NEWID();
 	SET @userId = NEWID();
 	SET @productTokenId = NEWID();
-
-	INSERT INTO [dbo].[Customers] (
-		[Id],
-		[FirstName],
-		[LastName],
-		[Email],
-		[Msisdn],
-		[Timestamp]
-	) VALUES (
-		@customerId,
-		@firstname,
-		@lastname,
-		@email,
-		@msisdn,
-		GETUTCDATE()
-	);
 
 	INSERT INTO [dbo].[Users] (
 		[Id],
@@ -67,26 +48,6 @@ BEGIN
 		@userId,
 		NEWID()
 	);
-
-	INSERT INTO [dbo].[Devices] (
-		 [PowerSensorId]
-		,[EnvironmentSensorId]
-		,[GasSensorId]
-		,[ServiceName]
-		,[Enabled]
-		,[Timestamp]
-		,[OnboardingToken]
-	) VALUES (
-		@pwrSensorId,
-		@envSensorId,
-		@gasSensorId,
-		@processingServiceName,
-		0,
-		GETUTCDATE(),
-		NEWID()
-	);
-
-	SET @deviceId = SCOPE_IDENTITY();
 
 	INSERT INTO [dbo].[UserDevices] (
 		[DeviceId],
