@@ -15,11 +15,11 @@ BEGIN
 	SET [OnboardingToken] = @token
 	WHERE [Email] = @email
 
-	COMMIT TRAN [t1]
-
-	IF @@ROWCOUNT = 1
+	IF @@ROWCOUNT >= 1
 	BEGIN
-		SELECT   @msisdn AS [Email]
+		SELECT   @msisdn AS [Msisdn]
 				,@token AS [Token]
 	END
+
+	COMMIT TRAN [t1]
 END
