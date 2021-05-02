@@ -6,7 +6,7 @@ BEGIN
 	SET @token = NEWID();
 
 	UPDATE [dbo].[Users]
-	SET [OnboardingToken] = @token
+	SET [OnboardingToken] = CONVERT(NVARCHAR(40), @token)
 	WHERE [Email] = @email
 
 	IF @@ROWCOUNT = 1
