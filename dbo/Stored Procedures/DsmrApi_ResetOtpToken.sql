@@ -1,12 +1,10 @@
 ﻿CREATE PROCEDURE [DsmrApi_ResetOtpToken]
-	@email NVARCHAR(64) 
+	@email NVARCHAR(64),
+	@token NVARCHAR(40)
 AS
 BEGIN
-	DECLARE @token UNIQUEIDENTIFIER;
-	SET @token = NEWID();
-
 	UPDATE [dbo].[Users]
-	SET [OnboardingToken] = CONVERT(NVARCHAR(40), @token)
+	SET [OnboardingToken] = @token
 	WHERE [Email] = @email
 
 	IF @@ROWCOUNT = 1

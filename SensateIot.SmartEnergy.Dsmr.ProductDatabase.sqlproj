@@ -86,5 +86,6 @@
     <Build Include="dbo\Stored Procedures\DsmrApi_Login.sql" />
     <Build Include="dbo\Stored Procedures\DsmrApi_Logout.sql" />
     <Build Include="dbo\Stored Procedures\DsmrApi_ResetOtpToken.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_CreateUser.sql" />
   </ItemGroup>
 </Project>
