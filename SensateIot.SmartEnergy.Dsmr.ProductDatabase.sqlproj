@@ -22,7 +22,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <DacVersion>1.4.0.0</DacVersion>
+    <DacVersion>1.4.1.0</DacVersion>
     <DacApplicationName>DsmrProduct</DacApplicationName>
     <Recovery>SIMPLE</Recovery>
     <PageVerify>CHECKSUM</PageVerify>
