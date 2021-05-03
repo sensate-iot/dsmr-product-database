@@ -1,10 +1,9 @@
 ﻿CREATE PROCEDURE [DsmrApi_Login]
-	@email NVARCHAR(64) ,
+	@email NVARCHAR(64),
 	@token NVARCHAR(40)
 AS
 BEGIN
 	BEGIN TRANSACTION [t]
-
 	DECLARE @userId UNIQUEIDENTIFIER;
 
 	SELECT @userId = [Id]
@@ -14,7 +13,8 @@ BEGIN
 	  AND [Email] = @email
 
 	UPDATE [dbo].[Users]
-	SET [Enabled] = 1
+	SET [Enabled] = 1,
+	    [OnboardingToken] = NULL
 	WHERE [Id] = @userId
 
 	SELECT TOP(1) @userId AS [UserId]
