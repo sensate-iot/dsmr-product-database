@@ -12,7 +12,8 @@ BEGIN
 	WHERE [Email] = @email
 
 	UPDATE [dbo].[Users]
-	SET [OnboardingToken] = @token
+	SET [OnboardingToken] = @token,
+	    [Enabled] = 0
 	WHERE [Email] = @email
 
 	IF @@ROWCOUNT >= 1
